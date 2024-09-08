@@ -1,6 +1,5 @@
 import RisscodingLandingpage from "@/assets/images/risscodingcode.vercel.app_.png";
 import SALandingPage from "@/assets/images/SmartAttendance.png";
-import eLibraryLandingPage from "@/assets/images/Elibrary.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
