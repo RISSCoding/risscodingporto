@@ -6,6 +6,7 @@ import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
 import moviesWeb from "@/assets/images/moviesWeb.png";
 import LoginWeb from "@/assets/images/LoginWeb.png";
 import grainImage from "@/assets/images/grain.jpg";
+import ELibraryLandingPage from "@/assets/images/ELibrary.png";
 
 const portfolioProjects = [
   {
@@ -28,6 +29,17 @@ const portfolioProjects = [
       { title: "Improve site frontend by using Bootstrap" },
     ],
     image: moviesWeb,
+  },
+  {
+    company: "School Mini-project",
+    year: "2023",
+    title: "E-Library",
+    results: [
+      { title: "Fullstack Engineer" },
+      { title: "Using Laravel for development" },
+      { title: "Improve site frontend by using TailwindCSS" },
+    ],
+    image: ELibraryLandingPage,
   },
   {
     company: "Personal Project",
