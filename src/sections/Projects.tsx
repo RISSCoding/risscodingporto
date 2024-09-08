@@ -31,17 +31,6 @@ const portfolioProjects = [
     image: moviesWeb,
   },
   {
-    company: "School Mini-project",
-    year: "2023",
-    title: "E-Library",
-    results: [
-      { title: "Fullstack Engineer" },
-      { title: "Using laravel for development" },
-      { title: "Create a realtime tracking for library visitor" },
-    ],
-    image: eLibraryLandingPage,
-  },
-  {
     company: "Personal Project",
     year: "2023",
     title: "RissCoding Porto V1",
