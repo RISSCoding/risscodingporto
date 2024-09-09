@@ -47,7 +47,6 @@ export default function Home() {
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        console.log(`Element: ${entry.target.id}, Is Intersecting: ${entry.isIntersecting}`);
         if (entry.isIntersecting) {
           setActiveSection(entry.target.id);
         }
@@ -84,7 +83,10 @@ export default function Home() {
         activeSection={activeSection}
       />
       <div ref={heroRef} id="beranda">
-        <HeroSection />
+        <HeroSection 
+          scrollToProjects={scrollToProjects}
+          scrollToContact={scrollToContact}
+        />
       </div>
       <div ref={projectsRef} id="proyek">
         <ProjectsSection />
