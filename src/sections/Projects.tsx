@@ -77,7 +77,7 @@ export const ProjectsSection = () => {
             Apa yang saya kerjakan?
           </p>
         </div>
-        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">Featured Projects</h2>
+        <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">Past Projects</h2>
         <p className="text-center md:text-lg text-white/60 mt-4 max-w-md mx-auto lg:text-xl">
           Lihat bagaimana saya menerapkan konsep saya ke dalam websites.
         </p>
