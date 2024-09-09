@@ -14,6 +14,7 @@ import mapImage from "@/assets/images/map.png"
 import smileMemoji from "@/assets/images/memoji-smile.png"
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
+import rissImage from "@/assets/images/risscoding.png";
 
 const toolboxItems = [
   {
@@ -98,13 +99,12 @@ export const AboutSection = () => {
     <div className="mt-20 flex flex-col gap-8">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
     <Card className="h-[320px] md:col-span-2 lg:col-span-1">
-      <CardHeader title="Bacaan saya" description="Buku yang membentuk perspektif saya." />
-      <div className="w-40 mx-auto mt-2 md:mt-0">
-      <Image src={bookImage} alt="Book Cover" />
+      <CardHeader title="Data saya" description="Nama saya Muhammad Faris Febrian Ramdan, siswa aktif SMK Negeri 4 Bandung jurusan rekayasa perangkat lunak." className="text-sm"/>
+      <div className="w-52 mx-auto  mt-2 md:mt-0">
       </div>
     </Card>
     <Card className="h-[320px] p-0 md:col-span-3 lg:col-span-2">
-      <CardHeader title="Senjata Saya" description="Jelajahi teknologi dan alat yang saya pakai untuk membuat karya digital." className="" />
+      <CardHeader title="Alat Saya" description="Jelajahi teknologi dan alat yang saya pakai untuk membuat karya digital." className="" />
       <ToolboxItems items={toolboxItems} className="" itemsWrapperClassName="animate-move-left [animation-duration:30s]"/>
       <ToolboxItems items={toolboxItems} className="mt-6" itemsWrapperClassName="animate-move-right [animation-duration:15s]"/>
     </Card>
