@@ -3,32 +3,48 @@ import SALandingPage from "@/assets/images/SmartAttendance.png";
 import Image from "next/image";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpIcon from "@/assets/icons/arrow-up-right.svg";
-import moviesWeb from "@/assets/images/moviesWeb.png";
+import iFast from "@/assets/images/iFast.png";
 import LoginWeb from "@/assets/images/LoginWeb.png";
 import grainImage from "@/assets/images/grain.jpg";
+import rplthreegames from "@/assets/images/rplthreegames.png";
 import ELibraryLandingPage from "@/assets/images/ELibrary.png";
 
 const portfolioProjects = [
   {
-    company: "School Mini-project",
-    year: "2022",
-    title: "Login Pages",
-    results: [
-      { title: "Frontend Engineer" },
-      { title: "Using HTML5 and CSS for development" },
-    ],
-    image: LoginWeb,
-  },
-  {
-    company: "School Mini-project",
-    year: "2022",
-    title: "My Movies",
+    company: "PT. Curaweda Palagan Innotech",
+    year: "2025",
+    title: "i-Fast Finance App System",
     results: [
       { title: "Fullstack Engineer" },
-      { title: "Using Javascript for development" },
-      { title: "Improve site frontend by using Bootstrap" },
+      { title: "Using React TypeScript for frontend development" },
+      { title: "Using Prisma ORM for backend development"}
     ],
-    image: moviesWeb,
+    link: "https://i-fast.curaweda.com/",
+    image: iFast,
+  },
+  {
+    company: "PT. Curaweda Palagan Innotech",
+    year: "2024",
+    title: "Smart Attendance",
+    results: [
+      { title: "Backend Engineer" },
+      { title: "Using Prisma ORM for backend development" },
+      { title: "Creating an effective server side" },
+    ],
+    link: "https://www.smart-att.curaweda.com/",
+    image: SALandingPage,
+  },
+  {
+    company: "RPLThree GameDev",
+    year: "2024",
+    title: "RPLThree GameDev Website",
+    results: [
+      { title: "Fullstack Engineer" },
+      { title: "Using Next.JS for development efficiency" },
+      { title: "Improved site frontend by using Tailwind CSS" },
+    ],
+    link: "https://rplthree-games.vercel.app/",
+    image: rplthreegames,
   },
   {
     company: "School Mini-project",
@@ -40,30 +56,6 @@ const portfolioProjects = [
       { title: "Improve site frontend by using TailwindCSS" },
     ],
     image: ELibraryLandingPage,
-  },
-  {
-    company: "Personal Project",
-    year: "2023",
-    title: "RissCoding Porto V1",
-    results: [
-      { title: "Fullstack Engineer" },
-      { title: "Using Next.JS for development efficiency" },
-      { title: "Improved site frontend by using Tailwind CSS" },
-    ],
-    link: "https://risscodingcode.vercel.app/",
-    image: RisscodingLandingpage,
-  },
-  {
-    company: "PT curaweda palagan innotech",
-    year: "2024",
-    title: "Smart Attendance",
-    results: [
-      { title: "Backend Engineer" },
-      { title: "Using Prisma ORM for backend development" },
-      { title: "Creating an effective server side" },
-    ],
-    link: "https://github.com/RISSCoding/Backend-SA",
-    image: SALandingPage,
   },
 ];
 
