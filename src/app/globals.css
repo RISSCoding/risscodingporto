@@ -22,3 +22,17 @@ html {
     scroll-behavior: smooth;
   }
   
+  .custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #D8F247; 
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    z-index: 9998;
+    transition: width 0.08s, height 0.08s, transform 0.08s, background-color 0.08s; /* Shortened transition duration */
+  }

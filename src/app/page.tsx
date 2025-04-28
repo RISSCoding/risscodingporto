@@ -8,21 +8,9 @@ import { TapeSection } from '@/sections/Tape';
 import { AboutSection } from '@/sections/About';
 import { ContactSection } from '@/sections/Contact';
 import { Footer } from '@/sections/Footer';
-import gsap from 'gsap';
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
-
-gsap.registerPlugin(ScrollToPlugin);
-
-const smoothScrollTo = (target: HTMLElement, duration: number) => {
-  gsap.to(window, {
-    scrollTo: {
-      y: target,
-      offsetY: 70 // Adjust offset if needed
-    },
-    duration: duration / 1000, // Duration in seconds
-    ease: 'power2.inOut' // Smooth easing function
-  });
-};
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // Jangan lupa import stylesheet AOS
+import Lenis from 'lenis';
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState<string>('beranda');
@@ -31,41 +19,62 @@ export default function Home() {
   const contactRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
 
-  const sections = [
-    { id: 'beranda', ref: heroRef, name: 'beranda' },
-    { id: 'proyek', ref: projectsRef, name: 'proyek' },
-    { id: 'about', ref: aboutRef, name: 'about' },
-    { id: 'kontak', ref: contactRef, name: 'kontak' }
-  ];
+  const smoothScrollTo = (target: HTMLElement, duration: number) => {
+    window.scrollTo({
+      top: target.offsetTop - 70, // offset Y untuk mengatur jarak header
+      behavior: 'smooth',
+    });
+  };
 
   useEffect(() => {
-    const options = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1 // Adjust threshold if needed
+    const lenis = new Lenis({
+      duration: 2,
+      easing: (t: number) => 1 - Math.pow(1 - t, 4),
+      smoothWheel: true,
+    });
+
+    const animate = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(animate);
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
+    requestAnimationFrame(animate);
 
-    sections.forEach(section => {
-      if (section.ref.current) {
-        observer.observe(section.ref.current);
-      }
+    return () => lenis.destroy();
+  }, []);
+
+  useEffect(() => {
+    // Inisialisasi AOS
+    AOS.init({
+      duration: 1000, // durasi animasi
+      easing: 'ease-in-out', // easing untuk animasi
+      once: true, // agar animasi hanya terjadi sekali
     });
 
     return () => {
-      sections.forEach(section => {
-        if (section.ref.current) {
-          observer.unobserve(section.ref.current);
-        }
-      });
+      AOS.refresh(); // refresh AOS ketika komponen dihancurkan
     };
+  }, []);
+
+  const sections = [
+    { id: 'beranda', ref: heroRef },
+    { id: 'proyek', ref: projectsRef },
+    { id: 'about', ref: aboutRef },
+    { id: 'kontak', ref: contactRef },
+  ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      }),
+      { root: null, rootMargin: '0px', threshold: 0.3 }
+    );
+
+    sections.forEach((section) => section.ref.current && observer.observe(section.ref.current));
+    return () => sections.forEach((section) => section.ref.current && observer.unobserve(section.ref.current));
   }, []);
 
   const scrollToHero = () => heroRef.current && smoothScrollTo(heroRef.current, 1500);
@@ -82,20 +91,20 @@ export default function Home() {
         scrollToProjects={scrollToProjects}
         activeSection={activeSection}
       />
-      <div ref={heroRef} id="beranda">
+      <div ref={heroRef} id="beranda" data-aos="fade-up">
         <HeroSection 
           scrollToProjects={scrollToProjects}
           scrollToContact={scrollToContact}
         />
       </div>
-      <div ref={projectsRef} id="proyek">
+      <div ref={projectsRef} id="proyek" data-aos="fade-up">
         <ProjectsSection />
       </div>
       <TapeSection />
-      <div ref={aboutRef} id="about">
+      <div ref={aboutRef} id="about" data-aos="fade-up">
         <AboutSection />
       </div>
-      <div ref={contactRef} id="kontak">
+      <div ref={contactRef} id="kontak" data-aos="fade-up">
         <ContactSection />
       </div>
       <Footer />
