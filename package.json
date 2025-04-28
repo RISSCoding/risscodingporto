@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@svgr/webpack": "^8.1.0",
+    "@vercel/speed-insights": "^1.2.0",
     "aos": "^2.3.4",
     "framer-motion": "^11.3.21",
     "gsap": "^3.12.5",
